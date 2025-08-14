@@ -19,4 +19,15 @@ public class OtoService implements IOtoService {
     public boolean delete(int bienKiemSoat) {
         return otoRepository.delete(bienKiemSoat);
     }
+
+    @Override
+    public boolean update(int bienKiemSoat, Oto newOto) {
+        return otoRepository.update(bienKiemSoat, newOto);
+    }
+
+
+    @Override
+    public Oto findByBienKiemSoat(int bienKiemSoat) {
+        return otoRepository.findByBienKiemSoat(bienKiemSoat);
+    }
 }

@@ -35,4 +35,24 @@ public class OtoRepository implements IOtoRepository {
         }
         return false;
     }
+    @Override
+    public Oto findByBienKiemSoat(int bienKiemSoat) {
+        for (Oto oto : otoList) {
+            if (oto.getBienKiemSoat() == bienKiemSoat) {
+                return oto;
+            }
+        }
+        return null;
+    }
+    @Override
+    public boolean update(int bienKiemSoat, Oto newOto) {
+        for (int i = 0; i < otoList.size(); i++) {
+            if (otoList.get(i).getBienKiemSoat() == bienKiemSoat) {
+                otoList.set(i, newOto);
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

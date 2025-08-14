@@ -32,4 +32,23 @@ public class XeMayRepository implements IXeMayRepository {
         }
         return false;
     }
+    @Override
+    public XeMay findByBienKiemSoat(int bienKiemSoat) {
+        for (XeMay xeMay : xeMayList) {
+            if (xeMay.getBienKiemSoat() == bienKiemSoat) {
+                return xeMay;
+            }
+        }
+        return null;
+    }
+    @Override
+    public boolean update(int bienKiemSoat, XeMay newXeMay ){
+        for (int i = 0; i < xeMayList.size(); i++) {
+            if (xeMayList.get(i).getBienKiemSoat() == bienKiemSoat) {
+                xeMayList.set(i, newXeMay);
+                return true;
+            }
+        }
+        return false;
+    }
 }

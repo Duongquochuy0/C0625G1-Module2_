@@ -1,12 +1,8 @@
 package transportation_mannerger.controller;
 import transportation_mannerger.entity.XeTai;
-
 import transportation_mannerger.service.IXeTaiService;
-
 import transportation_mannerger.service.XeTaiService;
-
 import transportation_mannerger.view.XeTaiView;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -17,14 +13,20 @@ public class XeTaiController {
         final int DISPLAY = 1;
         final int ADD = 2;
         final int DELETE = 3;
-        boolean flag =true;
-        while (flag){
+        final int FIND =4;
+        final int UPDATE =5;
+        boolean flag = true;
+
+        while (flag) {
             System.out.println("Quản lý Xe Tải");
             System.out.println("-------Chức năng------" +
-                    "\n 1. Danh sách các Xe Tải" +
-                    "\n 2. Thêm mới Xe Tải" +
+                    "\n 1. Danh sách các oto" +
+                    "\n 2. Thêm mới oto" +
                     "\n 3. Xoá" +
-                    "\n 4. Quay lại" );
+                    "\n 4. Tìm kiếm"+
+                    "\n 5. Sửa"+
+                    "\n 6. Quay lại"
+            );
 
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
@@ -50,6 +52,37 @@ public class XeTaiController {
                         System.out.println("Không tìm thấy xe tải có biển kiểm soát này!");
                     }
                     break;
+                case FIND:
+                    System.out.print("Nhập biển kiểm soát cần tìm: ");
+                    int bienKiemSoatCanTim = Integer.parseInt(scanner.nextLine());
+                    XeTai foundXeTai = xeTaiService.findByBienKiemSoat(bienKiemSoatCanTim);
+                    if (foundXeTai != null) {
+                        XeTaiView.display(foundXeTai);
+                    } else {
+                        System.out.println("Không tìm thấy xe với biển kiểm soát này.");
+                    }
+                    break;
+                case UPDATE:
+                    System.out.print("Nhập biển kiểm soát cần cập nhật: ");
+                    int bienKiemSoatUpdate = Integer.parseInt(scanner.nextLine());
+                    XeTai existingXeTai = xeTaiService.findByBienKiemSoat(bienKiemSoatUpdate);
+
+                    if (existingXeTai != null) {
+                        System.out.println("Nhập thông tin mới cho xe");
+                        XeTai newXeTai = XeTaiView.inputDataForXeTai();
+                        newXeTai.setBienKiemSoat(bienKiemSoatUpdate);
+
+                        boolean isUpdated = xeTaiService.update(bienKiemSoatUpdate, newXeTai);
+                        if (isUpdated) {
+                            System.out.println("Cập nhật thành công!");
+                        } else {
+                            System.out.println("Cập nhật thất bại!");
+                        }
+                    } else {
+                        System.out.println("Không tìm thấy xe với biển kiểm soát này!");
+                    }
+                    break;
+
                 default:
                     flag = false;
             }

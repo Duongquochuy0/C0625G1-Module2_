@@ -8,4 +8,7 @@ public interface IOtoRepository {
     ArrayList<Oto> findAll();
     boolean add(Oto oto);
     boolean delete(int bienKiemSoat);
+    boolean update(int bienKiemSoat, Oto newOto);
+    Oto findByBienKiemSoat(int bienKiemSoat);
+
 }

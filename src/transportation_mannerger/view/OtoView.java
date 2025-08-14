@@ -30,6 +30,8 @@ public class OtoView {
         Oto oto = new Oto(bienKiemSoat,hangSanXuat,namSanXuat,chuSoHuu,soChoNgoi,kieuXe);
         return oto;
     }
-//
+    public static void display(Oto oto) {
+        System.out.println(oto);
+    }
 
 }

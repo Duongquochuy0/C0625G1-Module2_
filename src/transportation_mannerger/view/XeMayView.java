@@ -1,4 +1,5 @@
 package transportation_mannerger.view;
+import transportation_mannerger.entity.Oto;
 import transportation_mannerger.entity.XeMay;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -25,5 +26,7 @@ public class XeMayView {
         XeMay xeMay = new XeMay(bienKiemSoat,hangSanXuat,namSanXuat,chuSoHuu,congSuat);
         return xeMay;
     }
-//
+    public static void display(XeMay xeMay) {
+        System.out.println(xeMay);
+    }
 }

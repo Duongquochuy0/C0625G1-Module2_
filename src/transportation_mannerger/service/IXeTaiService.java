@@ -8,4 +8,6 @@ public interface IXeTaiService {
     ArrayList<XeTai> findAll();
     boolean add(XeTai xeTai);
     boolean delete(int bienKiemSoat);
+    boolean update(int bienKiemSoat, XeTai newXeTai);
+    XeTai findByBienKiemSoat(int bienKiemSoat);
 }

@@ -1,4 +1,5 @@
 package transportation_mannerger.view;
+import transportation_mannerger.entity.Oto;
 import transportation_mannerger.entity.XeMay;
 import transportation_mannerger.entity.XeTai;
 
@@ -27,5 +28,7 @@ public class XeTaiView {
         XeTai xeTai = new XeTai(bienKiemSoat,hangSanXuat,namSanXuat,chuSoHuu,trongTai);
         return xeTai;
     }
-
+    public static void display(XeTai xeTai) {
+        System.out.println(xeTai);
+    }
 }

@@ -16,6 +16,8 @@ public class OtoController {
         final int DISPLAY = 1;
         final int ADD = 2;
         final int DELETE = 3;
+        final int FIND =4;
+        final int UPDATE =5;
         boolean flag = true;
 
         while (flag) {
@@ -24,7 +26,10 @@ public class OtoController {
                     "\n 1. Danh sách các oto" +
                     "\n 2. Thêm mới oto" +
                     "\n 3. Xoá" +
-                    "\n 4. Quay lại");
+                    "\n 4. Tìm kiếm"+
+                    "\n 5. Sửa"+
+                    "\n 6. Quay lại"
+            );
 
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {
@@ -52,6 +57,40 @@ public class OtoController {
                         System.out.println("Không tìm thấy oto có biển kiểm soát này!");
                     }
                     break;
+                case FIND:
+                    System.out.print("Nhập biển kiểm soát cần tìm: ");
+                    int bienKiemSoatCanTim = Integer.parseInt(scanner.nextLine());
+                    Oto foundOto = otoService.findByBienKiemSoat(bienKiemSoatCanTim);
+                    if (foundOto != null) {
+                        OtoView.display(foundOto);
+                    } else {
+                        System.out.println("Không tìm thấy xe với biển kiểm soát này.");
+                    }
+                    break;
+
+                case UPDATE:
+                    System.out.print("Nhập biển kiểm soát cần cập nhật: ");
+                    int bienKiemSoatUpdate = Integer.parseInt(scanner.nextLine());
+                    Oto existingOto = otoService.findByBienKiemSoat(bienKiemSoatUpdate);
+
+                    if (existingOto != null) {
+                        System.out.println("Nhập thông tin mới cho xe:");
+                        Oto newOto = OtoView.inputDataForOto();
+
+                        newOto.setBienKiemSoat(bienKiemSoatUpdate);
+
+                        boolean isUpdated = otoService.update(bienKiemSoatUpdate, newOto);
+                        if (isUpdated) {
+                            System.out.println("Cập nhật thành công!");
+                        } else {
+                            System.out.println("Cập nhật thất bại!");
+                        }
+                    } else {
+                        System.out.println("Không tìm thấy xe với biển kiểm soát này!");
+                    }
+                    break;
+
+
 
                 default:
                     flag = false;
