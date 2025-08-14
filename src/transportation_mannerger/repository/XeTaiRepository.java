@@ -1,5 +1,6 @@
 package transportation_mannerger.repository;
 
+import transportation_mannerger.entity.Oto;
 import transportation_mannerger.entity.XeMay;
 import transportation_mannerger.entity.XeTai;
 
@@ -21,5 +22,15 @@ public class XeTaiRepository implements IXeTaiRepository {
     public boolean add(XeTai xeTai) {
         xeTaiList.add(xeTai);
         return true;
+    }
+    @Override
+    public boolean delete(int bienKiemSoat) {
+        for (XeTai xeTai : xeTaiList) {
+            if (xeTai.getBienKiemSoat() == bienKiemSoat) {
+                xeTaiList.remove(xeTai);
+                return true;
+            }
+        }
+        return false;
     }
 }

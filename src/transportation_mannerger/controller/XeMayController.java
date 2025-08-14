@@ -38,6 +38,14 @@ public class XeMayController {
                     break;
                 case DELETE:
                     System.out.println("----Đây là chức năng xoá----------");
+                    System.out.print("Nhập biển kiểm soát xe máy cần xoá: ");
+                    int bienKiemSoat = Integer.parseInt(scanner.nextLine());
+                    boolean isDeleted = this.xeMayService.delete(bienKiemSoat);
+                    if (isDeleted) {
+                        System.out.println("Xóa thành công!");
+                    } else {
+                        System.out.println("Không tìm thấy xe máy có biển kiểm soát này!");
+                    }
                     break;
                 default:
                     flag = false;

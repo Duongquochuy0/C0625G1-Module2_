@@ -25,6 +25,6 @@ public class XeTai extends PhuongTienGiaoThong {
 
     @Override
     public String toString() {
-        return "Xe Tải{"+ "Biển kiểm Soát "+getBienKiemSoat()+" Hãng Sản Xuất "+getTenHangSanXuat()+" Năm Sản Xuất "+ getNamSanXuat()+" Chủ sỡ hữu "+getChuSoHuu() + " Trọng tải= " + getTrongTai() +  '\'' + '}';
+        return "Xe Tải{"+ "Biển kiểm Soát: "+getBienKiemSoat()+" Hãng Sản Xuất: "+getTenHangSanXuat()+" Năm Sản Xuất: "+ getNamSanXuat()+" Chủ sỡ hữu: "+getChuSoHuu() + " Trọng tải= " + getTrongTai() +  '\'' + '}';
     }
 }

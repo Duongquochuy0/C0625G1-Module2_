@@ -18,4 +18,7 @@ public class XeMayService implements IXeMayService {
     public boolean add(XeMay xeMay){
         return xeMayRepository.add(xeMay);
     }
+    public boolean delete(int bienKiemSoat) {
+        return xeMayRepository.delete(bienKiemSoat);
+    }
 }

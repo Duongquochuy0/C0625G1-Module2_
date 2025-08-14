@@ -1,5 +1,7 @@
 package transportation_mannerger.repository;
+import transportation_mannerger.entity.Oto;
 import transportation_mannerger.entity.XeMay;
+import transportation_mannerger.entity.XeTai;
 
 import java.util.ArrayList;
 
@@ -19,5 +21,15 @@ public class XeMayRepository implements IXeMayRepository {
     public boolean add(XeMay xeMay) {
         xeMayList.add(xeMay);
         return true;
+    }
+    @Override
+    public boolean delete(int bienKiemSoat) {
+        for (XeMay xeMay : xeMayList) {
+            if (xeMay.getBienKiemSoat() == bienKiemSoat) {
+                xeMayList.remove(xeMay);
+                return true;
+            }
+        }
+        return false;
     }
 }

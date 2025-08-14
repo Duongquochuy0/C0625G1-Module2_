@@ -41,6 +41,14 @@ public class XeTaiController {
                     break;
                 case DELETE:
                     System.out.println("----Đây là chức năng xoá----------");
+                    System.out.print("Nhập biển kiểm soát oto cần xoá: ");
+                    int bienKiemSoat = Integer.parseInt(scanner.nextLine());
+                    boolean isDeleted = this.xeTaiService.delete(bienKiemSoat);
+                    if (isDeleted) {
+                        System.out.println("Xóa thành công!");
+                    } else {
+                        System.out.println("Không tìm thấy xe tải có biển kiểm soát này!");
+                    }
                     break;
                 default:
                     flag = false;

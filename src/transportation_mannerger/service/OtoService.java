@@ -16,4 +16,7 @@ public class OtoService implements IOtoService {
     public boolean add(Oto oto){
         return otoRepository.add(oto);
     }
+    public boolean delete(int bienKiemSoat) {
+        return otoRepository.delete(bienKiemSoat);
+    }
 }

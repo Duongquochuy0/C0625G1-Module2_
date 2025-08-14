@@ -7,4 +7,5 @@ import java.util.ArrayList;
 public interface IOtoService {
     ArrayList<Oto> findAll();
     boolean add(Oto oto);
+    boolean delete(int bienKiemSoat);
 }

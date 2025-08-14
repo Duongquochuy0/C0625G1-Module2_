@@ -20,6 +20,6 @@ public class Oto extends PhuongTienGiaoThong {
 
     @Override
     public String toString() {
-        return "Oto{"+ "Biển kiểm Soát "+getBienKiemSoat()+" Hãng Sản Xuất "+getTenHangSanXuat()+" Năm Sản Xuất "+ getNamSanXuat()+" Chủ sỡ hữu "+getChuSoHuu() + " soChoNgoi= " + soChoNgoi + ", kieuXe='" + kieuXe + '\'' + '}';
+        return "Oto: "+ " Biển kiểm Soát: "+getBienKiemSoat()+" Hãng Sản Xuất: "+getTenHangSanXuat()+" Năm Sản Xuất: "+ getNamSanXuat()+" Chủ sỡ hữu: "+getChuSoHuu() + " soChoNgoi= " + soChoNgoi + ", kieuXe='" + kieuXe + '\'' + '}';
     }
 }

@@ -6,5 +6,5 @@ import java.util.ArrayList;
 public interface IXeMayRepository {
     ArrayList<XeMay> findAll();
     boolean add(XeMay xeMay);
-
+    boolean delete(int bienKiemSoat);
 }

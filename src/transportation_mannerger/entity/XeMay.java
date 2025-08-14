@@ -24,6 +24,6 @@ public class XeMay extends PhuongTienGiaoThong {
     }
 
     public String toString() {
-        return "Xe máy{"+ "Biển kiểm Soát "+getBienKiemSoat()+" Hãng Sản Xuất "+getTenHangSanXuat()+" Năm Sản Xuất "+ getNamSanXuat()+" Chủ sỡ hữu "+getChuSoHuu() + " Công suất= " + getCongSuat() +  '\'' + '}';
+        return "Xe máy{"+ "Biển kiểm Soát: "+getBienKiemSoat()+" Hãng Sản Xuất: "+getTenHangSanXuat()+" Năm Sản Xuất: "+ getNamSanXuat()+" Chủ sỡ hữu: "+getChuSoHuu() + " Công suất= " + getCongSuat() +  '\'' + '}';
     }
 }

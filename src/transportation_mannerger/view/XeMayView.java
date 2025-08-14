@@ -25,4 +25,5 @@ public class XeMayView {
         XeMay xeMay = new XeMay(bienKiemSoat,hangSanXuat,namSanXuat,chuSoHuu,congSuat);
         return xeMay;
     }
+//
 }
