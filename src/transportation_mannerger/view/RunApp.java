@@ -23,7 +23,7 @@ public class RunApp {
             System.out.println("Chọn đối tượng quản lý");
             System.out.println("-------Chức năng------" +
                     "\n 1. Quản lý xe máy" +
-                    "\n 2. Quản lý oto" +
+                    "\n 2. Quản lý oto.csv" +
                     "\n 3. Quản lý xe tải" +
                     "\n 4. Thoát");
 
@@ -34,7 +34,7 @@ public class RunApp {
                     xeMayController.displayMenu();
                     break;
                 case OTO:
-                    System.out.println("----Đây là chức năng quản lý oto----------");
+                    System.out.println("----Đây là chức năng quản lý oto.csv----------");
                     otoController.displayMenu();
                     break;
                 case XETAI:

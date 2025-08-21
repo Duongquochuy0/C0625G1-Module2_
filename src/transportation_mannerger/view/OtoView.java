@@ -4,17 +4,17 @@ import transportation_mannerger.entity.Oto;
 import transportation_mannerger.entity.XeMay;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class OtoView {
     private static Scanner scanner = new Scanner(System.in);
-    public static void disPlay(ArrayList<Oto> otoList){
+    public static void disPlay(List<Oto> otoList){
         for (Oto oto: otoList) {
             System.out.println(oto);
         }
     }
     public static Oto inputDataForOto(){
-
         System.out.println("Nhập biển kiểm soát: ");
         int bienKiemSoat = Integer.parseInt(scanner.nextLine());
         System.out.println(" Nhập hãng xe: ");

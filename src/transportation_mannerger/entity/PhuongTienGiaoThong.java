@@ -1,6 +1,6 @@
 package transportation_mannerger.entity;
 
-public class PhuongTienGiaoThong {
+public abstract class PhuongTienGiaoThong {
     private int bienKiemSoat;
     private String tenHangSanXuat;
     private int namSanXuat;
@@ -47,6 +47,7 @@ public class PhuongTienGiaoThong {
     public void setChuSoHuu(String chuSoHuu) {
         this.chuSoHuu = chuSoHuu;
     }
+    public abstract String getInfoToCSV();
 
     @Override
     public String toString() {

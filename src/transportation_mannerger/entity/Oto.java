@@ -7,6 +7,11 @@ public class Oto extends PhuongTienGiaoThong {
     public Oto() {
     }
 
+    @Override
+    public String getInfoToCSV() {
+        return this.getBienKiemSoat()+","+this.getTenHangSanXuat()+","+this.getNamSanXuat()+","+this.getChuSoHuu()+","+this.soChoNgoi+","+this.kieuXe;
+    }
+
     public Oto(int soChoNgoi, String kieuXe) {
         this.soChoNgoi = soChoNgoi;
         this.kieuXe = kieuXe;

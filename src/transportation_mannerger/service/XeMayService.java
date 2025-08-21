@@ -9,11 +9,12 @@ import transportation_mannerger.repository.IXeMayRepository;
 import transportation_mannerger.repository.XeMayRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class XeMayService implements IXeMayService {
     private IXeMayRepository xeMayRepository = new XeMayRepository();
     @Override
-    public ArrayList<XeMay> findAll(){
+    public List<XeMay> findAll(){
         return xeMayRepository.findAll();
     }
     @Override

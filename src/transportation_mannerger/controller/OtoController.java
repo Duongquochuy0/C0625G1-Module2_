@@ -6,6 +6,7 @@ import transportation_mannerger.service.OtoService;
 import transportation_mannerger.view.OtoView;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class OtoController {
@@ -23,8 +24,8 @@ public class OtoController {
         while (flag) {
             System.out.println("Quản lý Oto");
             System.out.println("-------Chức năng------" +
-                    "\n 1. Danh sách các oto" +
-                    "\n 2. Thêm mới oto" +
+                    "\n 1. Danh sách các oto.csv" +
+                    "\n 2. Thêm mới oto.csv" +
                     "\n 3. Xoá" +
                     "\n 4. Tìm kiếm"+
                     "\n 5. Sửa"+
@@ -35,26 +36,31 @@ public class OtoController {
             switch (choice) {
                 case DISPLAY:
                     System.out.println("----Đây là chức năng hiển thị----------");
-                    ArrayList<Oto> otoList = this.otoService.findAll();
+                    List<Oto> otoList = this.otoService.findAll();
                     OtoView.disPlay(otoList);
                     break;
 
                 case ADD:
                     System.out.println("----Đây là chức năng thêm mới----------");
                     Oto oto = OtoView.inputDataForOto();
-                    this.otoService.add(oto);
-                    System.out.println("- Thêm mới thành công");
+                    boolean isSuccess= this.otoService.add(oto);
+                    if (isSuccess){
+                        System.out.println("- Thêm mới thành công");
+                    }else {
+                        System.out.println("- Thêm mới không  thành công");
+                    }
+
                     break;
 
                 case DELETE:
                     System.out.println("----Đây là chức năng xoá----------");
-                    System.out.print("Nhập biển kiểm soát oto cần xoá: ");
+                    System.out.print("Nhập biển kiểm soát oto.csv cần xoá: ");
                     int bienKiemSoat = Integer.parseInt(scanner.nextLine());
                     boolean isDeleted = this.otoService.delete(bienKiemSoat);
                     if (isDeleted) {
                         System.out.println("Xóa thành công!");
                     } else {
-                        System.out.println("Không tìm thấy oto có biển kiểm soát này!");
+                        System.out.println("Không tìm thấy oto.csv có biển kiểm soát này!");
                     }
                     break;
                 case FIND:

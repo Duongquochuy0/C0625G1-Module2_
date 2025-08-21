@@ -2,11 +2,12 @@ package transportation_mannerger.view;
 import transportation_mannerger.entity.Oto;
 import transportation_mannerger.entity.XeMay;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class XeMayView {
     private static Scanner scanner = new Scanner(System.in);
-    public static void disPlay(ArrayList<XeMay> xeMayList){
+    public static void disPlay(List<XeMay> xeMayList){
         for (XeMay xeMay: xeMayList) {
             System.out.println(xeMay);
         }

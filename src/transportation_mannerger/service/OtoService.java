@@ -5,11 +5,12 @@ import transportation_mannerger.repository.IOtoRepository;
 import transportation_mannerger.repository.OtoRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class OtoService implements IOtoService {
     private IOtoRepository otoRepository = new OtoRepository();
     @Override
-    public ArrayList<Oto> findAll(){
+    public List<Oto> findAll(){
         return otoRepository.findAll();
     }
     @Override

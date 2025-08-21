@@ -7,6 +7,7 @@ import transportation_mannerger.view.OtoView;
 import transportation_mannerger.view.XeMayView;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class XeMayController {
@@ -23,8 +24,8 @@ public class XeMayController {
         while (flag) {
             System.out.println("Quản lý Xe Máy");
             System.out.println("-------Chức năng------" +
-                    "\n 1. Danh sách các oto" +
-                    "\n 2. Thêm mới oto" +
+                    "\n 1. Danh sách các oto.csv" +
+                    "\n 2. Thêm mới oto.csv" +
                     "\n 3. Xoá" +
                     "\n 4. Tìm kiếm"+
                     "\n 5. Sửa"+
@@ -35,7 +36,7 @@ public class XeMayController {
             switch (choice) {
                 case DISPLAY:
                     System.out.println("----Đây là chức năng hiển thị----------");
-                    ArrayList<XeMay> xeMayList = this.xeMayService.findAll();
+                    List<XeMay> xeMayList = this.xeMayService.findAll();
                     XeMayView.disPlay(xeMayList);
                     break;
                 case ADD:

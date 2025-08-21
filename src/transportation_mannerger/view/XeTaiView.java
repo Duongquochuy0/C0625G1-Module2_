@@ -4,11 +4,12 @@ import transportation_mannerger.entity.XeMay;
 import transportation_mannerger.entity.XeTai;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class XeTaiView {
     private static Scanner scanner = new Scanner(System.in);
-    public static void disPlay(ArrayList<XeTai> xeTaiList){
+    public static void disPlay(List<XeTai> xeTaiList){
         for (XeTai xeTai: xeTaiList) {
             System.out.println(xeTai);
         }

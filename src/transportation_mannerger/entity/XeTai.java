@@ -6,6 +6,11 @@ public class XeTai extends PhuongTienGiaoThong {
     public XeTai() {
     }
 
+    @Override
+    public String getInfoToCSV() {
+        return this.getBienKiemSoat()+","+this.getTenHangSanXuat()+","+this.getNamSanXuat()+","+this.getChuSoHuu()+","+this.getTrongTai();
+    }
+
     public int getTrongTai() {
         return trongTai;
     }

@@ -1,9 +1,13 @@
 package transportation_mannerger.controller;
+import transportation_mannerger.entity.Oto;
 import transportation_mannerger.entity.XeTai;
 import transportation_mannerger.service.IXeTaiService;
 import transportation_mannerger.service.XeTaiService;
+import transportation_mannerger.view.OtoView;
+import transportation_mannerger.view.XeMayView;
 import transportation_mannerger.view.XeTaiView;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class XeTaiController {
@@ -20,8 +24,8 @@ public class XeTaiController {
         while (flag) {
             System.out.println("Quản lý Xe Tải");
             System.out.println("-------Chức năng------" +
-                    "\n 1. Danh sách các oto" +
-                    "\n 2. Thêm mới oto" +
+                    "\n 1. Danh sách các oto.csv" +
+                    "\n 2. Thêm mới oto.csv" +
                     "\n 3. Xoá" +
                     "\n 4. Tìm kiếm"+
                     "\n 5. Sửa"+
@@ -32,7 +36,7 @@ public class XeTaiController {
             switch (choice) {
                 case DISPLAY:
                     System.out.println("----Đây là chức năng hiển thị----------");
-                    ArrayList<XeTai> xeTaiList = this.xeTaiService.findAll();
+                    List<XeTai> xeTaiList = this.xeTaiService.findAll();
                     XeTaiView.disPlay(xeTaiList);
                     break;
                 case ADD:
@@ -43,7 +47,7 @@ public class XeTaiController {
                     break;
                 case DELETE:
                     System.out.println("----Đây là chức năng xoá----------");
-                    System.out.print("Nhập biển kiểm soát oto cần xoá: ");
+                    System.out.print("Nhập biển kiểm soát oto.csv cần xoá: ");
                     int bienKiemSoat = Integer.parseInt(scanner.nextLine());
                     boolean isDeleted = this.xeTaiService.delete(bienKiemSoat);
                     if (isDeleted) {

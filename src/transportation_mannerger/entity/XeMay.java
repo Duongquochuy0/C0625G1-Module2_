@@ -6,6 +6,11 @@ public class XeMay extends PhuongTienGiaoThong {
     public XeMay() {
     }
 
+    @Override
+    public String getInfoToCSV() {
+        return this.getBienKiemSoat()+","+this.getTenHangSanXuat()+","+this.getNamSanXuat()+","+this.getChuSoHuu()+","+this.getCongSuat();
+    }
+
     public XeMay(int congSuat) {
         this.congSuat = congSuat;
     }

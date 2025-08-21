@@ -7,12 +7,13 @@ import transportation_mannerger.repository.XeMayRepository;
 import transportation_mannerger.repository.XeTaiRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class XeTaiService implements IXeTaiService {
     private IXeTaiRepository xeTaiRepository = new XeTaiRepository();
 
     @Override
-    public ArrayList<XeTai> findAll(){
+    public List<XeTai> findAll(){
         return xeTaiRepository.findAll();
     }
 
