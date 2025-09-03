@@ -38,8 +38,8 @@ public class FuramaController {
                         bookingController.menu();
                         break;
                     case 5:
-//                        KhuyenMaiController khuyenMaiController= new KhuyenMaiController();
-//                        khuyenMaiController.menu();
+                        KhuyenMaiController khuyenMaiController= new KhuyenMaiController();
+                        khuyenMaiController.menu();
                         break;
                     case 6:
                         System.out.println("Kết thúc chương trình");

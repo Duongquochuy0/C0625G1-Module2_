@@ -26,7 +26,24 @@ public class BookingService {
         System.out.println("Đã thêm booking mới thành công.");
     }
 
-   
+    public void createContractFromQueue() {
+        Booking earliestBooking = bookingRepository.getEarliestBooking();
+
+        if (earliestBooking != null) {
+            System.out.println("Đang tạo hợp đồng cho booking sớm nhất: " + earliestBooking.getMaBooking());
+            String contractId = "HD-" + UUID.randomUUID().toString().substring(0, 8);
+            Contract contract = new Contract(
+                    contractId,
+                    earliestBooking.getMaBooking(),
+                    earliestBooking.getMaKhachHang(),
+                    earliestBooking.getMaDichVu()
+            );
+            contractRepository.addContract(contract);
+            System.out.println("Đã tạo và lưu hợp đồng thành công với mã: " + contractId);
+        } else {
+            System.out.println("Không còn booking nào trong hàng đợi để tạo hợp đồng.");
+        }
+    }
 
     public void displayAllBookings() {
         Set<Booking> allBookings = bookingRepository.getAllBookings();
