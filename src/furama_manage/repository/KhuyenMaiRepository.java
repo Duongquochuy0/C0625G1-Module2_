@@ -7,10 +7,12 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class KhuyenMaiRepository {
-    private static final Set<Booking> bookingSet = new TreeSet<>(new Booking.BookingComparator());
+    private static final Set<Booking> bookingSet = new TreeSet<>();
+
     static {
         bookingSet.addAll(new BookingRepository().getAllBookings());
     }
+
     public Set<String> getCustomersByYear(int year) {
         Set<String> customers = new TreeSet<>();
         for (Booking b : bookingSet) {
@@ -20,6 +22,7 @@ public class KhuyenMaiRepository {
         }
         return customers;
     }
+
     public List<String> getCustomersInCurrentMonth() {
         List<String> customers = new ArrayList<>();
         int currentMonth = LocalDate.now().getMonthValue();
@@ -33,9 +36,10 @@ public class KhuyenMaiRepository {
         }
         return customers;
     }
+
     public Stack<KhuyenMai> distributeVouchers(int v10, int v20, int v50) {
         List<Booking> list = new ArrayList<>(bookingSet);
-        list.sort(new Booking.BookingComparator());
+        Collections.sort(list);
 
         Stack<KhuyenMai> stack = new Stack<>();
         int total = v10 + v20 + v50;

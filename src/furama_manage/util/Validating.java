@@ -12,7 +12,6 @@ public class Validating {
     private static final String PHONE_NUMBER_REGEX = "^0\\d{9}$";
     private static final String GENDER_REGEX = "^(Male|Female)$";
     private static final String LOAI_KHACH_REGEX = "^(Diamond|Platinium|Gold|Silver|Member)$";
-    // Regex cho mã dịch vụ
     private static final String FACILITY_ID_REGEX = "^(SVVL|SVHO|SVRO)-\\d{4}$";
 
     public static void validateEmployeeId(String id) throws UserInputException {
@@ -73,8 +72,6 @@ public class Validating {
             throw new UserInputException("Loại khách hàng không hợp lệ");
         }
     }
-
-    // Các phương thức bổ sung cho Task 5
     public static void validateFacilityId(String id, String prefix) throws UserInputException {
         if (!id.matches("^" + prefix + "-\\d{4}$")) {
             throw new UserInputException("Mã dịch vụ phải đúng định dạng " + prefix + "-YYYY");

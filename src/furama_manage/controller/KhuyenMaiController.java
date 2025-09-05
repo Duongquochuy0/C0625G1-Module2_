@@ -13,8 +13,7 @@ public class KhuyenMaiController {
             System.out.println("\n---- Promotion Management ----");
             System.out.println("1. Hiển thị danh sách khách hàng sử dụng dịch vụ");
             System.out.println("2. Hiển thị danh sách khách hàng nhận khuyến mãi");
-            System.out.println("3. Return main menu");
-            System.out.print("Choose: ");
+            System.out.println("3. Quay lại menu chính");
             try {
                 choice = Integer.parseInt(scanner.nextLine());
                 switch (choice) {
@@ -30,7 +29,7 @@ public class KhuyenMaiController {
                         System.out.println("Nhập lại");
                 }
             } catch (NumberFormatException e) {
-                System.err.println("Lỗi: nhập số nguyên!");
+                System.err.println("Lỗi nhập số nguyên");
             }
         } while (true);
     }

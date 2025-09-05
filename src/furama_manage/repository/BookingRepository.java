@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.*;
 
-public class BookingRepository {
+public class BookingRepository implements IBookingRepository {
     private static final String FILE_PATH = "furama_manage/data/booking.csv";
 
     private static Set<Booking> bookingSet;
@@ -15,8 +15,8 @@ public class BookingRepository {
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     static {
-        bookingSet = new TreeSet<>(new Booking.BookingComparator());
-        bookingQueue = new PriorityQueue<>(new Booking.BookingComparator());
+        bookingSet = new TreeSet<>();
+        bookingQueue = new PriorityQueue<>();
         readBookingsFromFile();
     }
 
@@ -41,6 +41,7 @@ public class BookingRepository {
             System.err.println("Không thể đọc file booking.csv: " + e.getMessage());
         }
     }
+
     public void addNewBooking(Booking booking) {
         if (!bookingSet.contains(booking)) {
             bookingSet.add(booking);
@@ -50,18 +51,11 @@ public class BookingRepository {
             System.err.println("Booking đã tồn tại");
         }
     }
+
     public Set<Booking> getAllBookings() {
         return new TreeSet<>(bookingSet);
     }
-    public void removeBooking(Booking booking) {
-        if (bookingSet.contains(booking)) {
-            bookingSet.remove(booking);
-            bookingQueue.remove(booking);
-            saveBookingsToFile();
-        } else {
-            System.err.println("Không tìm thấy booking để xóa.");
-        }
-    }
+
     public void displayAllBookings() {
         if (bookingSet.isEmpty()) {
             System.out.println("Danh sách đặt phòng trống.");

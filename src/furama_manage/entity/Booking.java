@@ -2,7 +2,6 @@ package furama_manage.entity;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Comparator;
 import java.util.Objects;
 
 public class Booking implements Comparable<Booking> {
@@ -26,15 +25,33 @@ public class Booking implements Comparable<Booking> {
     public String getMaBooking() {
         return maBooking;
     }
-    public String getMaKhachHang() { return maKhachHang; }
-    public String getMaDichVu() { return maDichVu; }
-    public LocalDate getNgayBatDau() { return ngayBatDau; }
-    public LocalDate getNgayKetThuc() { return ngayKetThuc; }
-    public void setMaBooking(String maBooking) { this.maBooking = maBooking; }
-    public void setMaKhachHang(String maKhachHang) { this.maKhachHang = maKhachHang; }
-    public void setMaDichVu(String maDichVu) { this.maDichVu = maDichVu; }
-    public void setNgayBatDau(LocalDate ngayBatDau) { this.ngayBatDau = ngayBatDau; }
-    public void setNgayKetThuc(LocalDate ngayKetThuc) { this.ngayKetThuc = ngayKetThuc; }
+    public String getMaKhachHang() {
+        return maKhachHang;
+    }
+    public String getMaDichVu() {
+        return maDichVu;
+    }
+    public LocalDate getNgayBatDau() {
+        return ngayBatDau;
+    }
+    public LocalDate getNgayKetThuc() {
+        return ngayKetThuc;
+    }
+    public void setMaBooking(String maBooking) {
+        this.maBooking = maBooking;
+    }
+    public void setMaKhachHang(String maKhachHang) {
+        this.maKhachHang = maKhachHang;
+    }
+    public void setMaDichVu(String maDichVu) {
+        this.maDichVu = maDichVu;
+    }
+    public void setNgayBatDau(LocalDate ngayBatDau) {
+        this.ngayBatDau = ngayBatDau;
+    }
+    public void setNgayKetThuc(LocalDate ngayKetThuc) {
+        this.ngayKetThuc = ngayKetThuc;
+    }
     public String toCSV() {
         return maBooking + "," + maKhachHang + "," + maDichVu + ","
                 + ngayBatDau.format(formatter) + "," + ngayKetThuc.format(formatter);
@@ -70,14 +87,14 @@ public class Booking implements Comparable<Booking> {
         }
         return result;
     }
-    public static class BookingComparator implements Comparator<Booking> {
-        @Override
-        public int compare(Booking b1, Booking b2) {
-            int result = b1.getNgayBatDau().compareTo(b2.getNgayBatDau());
-            if (result == 0) {
-                result = b1.getNgayKetThuc().compareTo(b2.getNgayKetThuc());
-            }
-            return result;
-        }
-    }
+//    public static class BookingComparator implements Comparator<Booking> {
+//        @Override
+//        public int compare(Booking b1, Booking b2) {
+//            int result = b1.getNgayBatDau().compareTo(b2.getNgayBatDau());
+//            if (result == 0) {
+//                result = b1.getNgayKetThuc().compareTo(b2.getNgayKetThuc());
+//            }
+//            return result;
+//        }
+//    }
 }
