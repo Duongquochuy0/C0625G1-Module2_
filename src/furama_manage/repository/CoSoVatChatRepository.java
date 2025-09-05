@@ -47,14 +47,14 @@ public class CoSoVatChatRepository implements ICoSoVatChatRepository{
         }
         return maintenanceFacilities;
     }
-    @Override
-    public void updateFacilityUsage(String facilityId) {
-        for (Map.Entry<CoSoVatChat, Integer> entry : coSoVatChatIntegerMap.entrySet()) {
-            if (entry.getKey().getMaDichVu().equals(facilityId)) {
-                entry.setValue(entry.getValue() + 1);
-                ReadAndWrite.writeFacilityToFile(FILE_PATH, coSoVatChatIntegerMap);
-                return;
-            }
-        }
-    }
+//    @Override
+//    public void updateFacilityUsage(String facilityId) {
+//        for (Map.Entry<CoSoVatChat, Integer> entry : coSoVatChatIntegerMap.entrySet()) {
+//            if (entry.getKey().getMaDichVu().equals(facilityId)) {
+//                entry.setValue(entry.getValue() + 1);
+//                ReadAndWrite.writeFacilityToFile(FILE_PATH, coSoVatChatIntegerMap);
+//                return;
+//            }
+//        }
+//    }
 }

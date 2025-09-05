@@ -58,7 +58,7 @@ public class BookingRepository implements IBookingRepository {
 
     public void displayAllBookings() {
         if (bookingSet.isEmpty()) {
-            System.out.println("Danh sách đặt phòng trống.");
+            System.out.println("Danh sách đặt phòng trống");
         } else {
             bookingSet.forEach(System.out::println);
         }

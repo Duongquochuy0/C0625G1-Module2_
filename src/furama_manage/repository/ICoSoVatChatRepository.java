@@ -8,5 +8,5 @@ public interface ICoSoVatChatRepository {
     Map<CoSoVatChat, Integer> getAllFacilities();
     void addFacility(CoSoVatChat facility);
     Map<CoSoVatChat, Integer> getFacilitiesForMaintenance();
-    void updateFacilityUsage(String facilityId);
+//    void updateFacilityUsage(String facilityId);
 }

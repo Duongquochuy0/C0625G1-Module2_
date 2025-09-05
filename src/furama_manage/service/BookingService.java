@@ -11,11 +11,11 @@ import java.util.UUID;
 
 public class BookingService implements IBookingService {
     private final BookingRepository bookingRepository;
-    private final HopDongRepository contractRepository;
+    private final HopDongRepository hopDongRepository;
 
-    public BookingService(BookingRepository bookingRepository, HopDongRepository contractRepository) {
+    public BookingService(BookingRepository bookingRepository, HopDongRepository hopDongRepository) {
         this.bookingRepository = bookingRepository;
-        this.contractRepository = contractRepository;
+        this.hopDongRepository = hopDongRepository;
     }
 
     @Override
@@ -28,20 +28,22 @@ public class BookingService implements IBookingService {
         System.out.println("Đã thêm booking mới thành công.");
     }
 
+    private static int contractCounter = 1;
     @Override
     public void createContractFromQueue() {
         Booking earliestBooking = bookingRepository.getEarliestBooking();
 
         if (earliestBooking != null) {
             System.out.println("Đang tạo hợp đồng cho booking sớm nhất: " + earliestBooking.getMaBooking());
-            String contractId = "HD-" + UUID.randomUUID().toString().substring(0, 4);
+            String contractId = String.format("HD-%04d", contractCounter++);
+
             Contract contract = new Contract(
                     contractId,
                     earliestBooking.getMaBooking(),
                     earliestBooking.getMaKhachHang(),
                     earliestBooking.getMaDichVu()
             );
-            contractRepository.addContract(contract);
+            hopDongRepository.addContract(contract);
             System.out.println("Đã tạo và lưu hợp đồng thành công với mã: " + contractId);
         } else {
             System.out.println("Không còn booking nào trong hàng đợi để tạo hợp đồng.");
@@ -64,7 +66,7 @@ public class BookingService implements IBookingService {
 
     @Override
     public void displayAllContracts() {
-        List<Contract> allContracts = contractRepository.getAllContracts();
+        List<Contract> allContracts = hopDongRepository.getAllContracts();
         if (allContracts.isEmpty()) {
             System.out.println("Hiện không có hợp đồng nào được tạo.");
             return;
