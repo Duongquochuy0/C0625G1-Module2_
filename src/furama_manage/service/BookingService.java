@@ -71,7 +71,7 @@ public class BookingService implements IBookingService {
         List<String> availableServices = bookingRepository.getAvailableServices(startDate, endDate);
 
         if (availableServices.isEmpty()) {
-            System.out.println("⚠ Không có dịch vụ nào còn trống trong khoảng thời gian này.");
+            System.out.println(" Không có dịch vụ nào còn trống trong khoảng thời gian này.");
             return;
         }
 
