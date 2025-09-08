@@ -10,8 +10,7 @@ public class Booking implements Comparable<Booking> {
     private String maDichVu;
     private LocalDate ngayBatDau;
     private LocalDate ngayKetThuc;
-
-    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    public static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public Booking(String maBooking, String maKhachHang, String maDichVu,
                    LocalDate ngayBatDau, LocalDate ngayKetThuc) {
@@ -21,7 +20,6 @@ public class Booking implements Comparable<Booking> {
         this.ngayBatDau = ngayBatDau;
         this.ngayKetThuc = ngayKetThuc;
     }
-
     public String getMaBooking() {
         return maBooking;
     }
@@ -54,19 +52,33 @@ public class Booking implements Comparable<Booking> {
     }
     public String toCSV() {
         return maBooking + "," + maKhachHang + "," + maDichVu + ","
-                + ngayBatDau.format(formatter) + "," + ngayKetThuc.format(formatter);
+                + ngayBatDau.format(FORMATTER) + "," + ngayKetThuc.format(FORMATTER);
     }
 
     @Override
     public String toString() {
-        return "Booking{" +
-                "maBooking='" + maBooking + '\'' +
-                ", maKhachHang='" + maKhachHang + '\'' +
-                ", maDichVu='" + maDichVu + '\'' +
-                ", ngayBatDau=" + ngayBatDau.format(formatter) +
-                ", ngayKetThuc=" + ngayKetThuc.format(formatter) +
-                '}';
+        return String.format(
+                "| %-7s | Khách hàng: %-8s | Dịch vụ: %-10s | Ngày bắt đầu: %s | Ngày kết thúc: %s |",
+                maBooking,
+                maKhachHang,
+                maDichVu,
+                ngayBatDau.format(FORMATTER),
+                ngayKetThuc.format(FORMATTER)
+        );
     }
+
+    @Override
+    public int compareTo(Booking o) {
+        int result = this.ngayBatDau.compareTo(o.ngayBatDau);
+        if (result == 0) {
+            result = this.ngayKetThuc.compareTo(o.ngayKetThuc);
+        }
+        if (result == 0) {
+            result = this.maBooking.compareTo(o.maBooking);
+        }
+        return result;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -79,22 +91,4 @@ public class Booking implements Comparable<Booking> {
     public int hashCode() {
         return Objects.hash(maBooking);
     }
-    @Override
-    public int compareTo(Booking o) {
-        int result = this.ngayBatDau.compareTo(o.ngayBatDau);
-        if (result == 0) {
-            result = this.ngayKetThuc.compareTo(o.ngayKetThuc);
-        }
-        return result;
-    }
-//    public static class BookingComparator implements Comparator<Booking> {
-//        @Override
-//        public int compare(Booking b1, Booking b2) {
-//            int result = b1.getNgayBatDau().compareTo(b2.getNgayBatDau());
-//            if (result == 0) {
-//                result = b1.getNgayKetThuc().compareTo(b2.getNgayKetThuc());
-//            }
-//            return result;
-//        }
-//    }
 }

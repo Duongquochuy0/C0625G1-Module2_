@@ -37,13 +37,12 @@ public class Contract {
 
     @Override
     public String toString() {
-        return "Contract{" +
-                "maHopDong='" + maHopDong + '\'' +
-                ", maBooking='" + maBooking + '\'' +
-                ", maKhachHang='" + maKhachHang + '\'' +
-                ", maDichVu='" + maDichVu + '\'' +
-                '}';
+        return String.format(
+                "| %-7s | Booking: %-7s | Khách hàng: %-8s | Dịch vụ: %-10s |",
+                maHopDong, maBooking, maKhachHang, maDichVu
+        );
     }
+
 
     @Override
     public boolean equals(Object o) {

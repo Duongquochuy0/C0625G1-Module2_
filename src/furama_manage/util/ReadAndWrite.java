@@ -1,5 +1,4 @@
 package furama_manage.util;
-
 import furama_manage.entity.CoSoVatChat;
 import furama_manage.entity.House;
 import furama_manage.entity.Room;

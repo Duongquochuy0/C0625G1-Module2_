@@ -39,7 +39,10 @@ public class KhuyenMaiRepository {
 
     public Stack<KhuyenMai> distributeVouchers(int v10, int v20, int v50) {
         List<Booking> list = new ArrayList<>(bookingSet);
-        Collections.sort(list);
+        list.sort(
+                Comparator.comparing(Booking::getNgayBatDau)
+                        .thenComparing(Booking::getNgayKetThuc)
+        );
 
         Stack<KhuyenMai> stack = new Stack<>();
         int total = v10 + v20 + v50;
