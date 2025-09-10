@@ -1,0 +1,12 @@
+A001,Q001,JVM là máy ảo,true
+A002,Q001,JVM là bộ công cụ hỗ trợ Java,false
+A003,Q001,JVM là JVM,false
+A004,Q001,JVM là môi trường chạy Java,false
+A001,Q002,Hello là xin chào,true
+A002,Q002,Hello là tạm biệt,false
+A003,Q002,Hello là vĩnh biệt,false
+A004,Q002,Hello là cook,false
+A001,Q003,House là nhà,true
+A002,Q003,House là cửa,false
+A003,Q003,House là tủ lạnh,false
+A004,Q003,House là máy giặt,false
